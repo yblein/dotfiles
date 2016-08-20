@@ -33,6 +33,7 @@
 
 [diff]
 	tool = meld
+	algorithm = histogram
 
 [push]
 	default = simple
