@@ -1,0 +1,56 @@
+! General X settings
+Xft.antialias: true
+Xft.hinting:   true
+Xft.hintstyle: hintfull
+Xft.rgba:      rgb
+!Xft.rgba:      none
+
+! URxvt - Settings
+!URxvt.geometry:         80x23
+URxvt.buffered:         true
+URxvt.termName:         rxvt-256color
+URxvt.urlLauncher:      chromium
+URxvt.matcher.button:   1
+URxvt.saveLines:        32768
+Urxvt.urgentOnBell:     true
+
+URxvt.internalBorder:   1
+URxvt.borderColor:      #151515
+URxvt.borderLess:       false
+URxvt.depth:            32
+URxvt.font:             xft:terminus:pixelsize=14:antialias=false:hinting=false
+URxvt.boldFont:         xft:terminus:pixelsize=14:antialias=false:hinting=false
+
+URxvt.cursorBlink:      false
+URxvt.cursorUnderline:  false
+
+URxvt.scrollBar:        off
+
+! URxvt - Colors
+URxvt.background: #151515
+URxvt.foreground: #FFFFFF
+
+! Black
+*.color0:   #1B1D1E
+*.color8:   #505354
+! Red
+*.color1:   #D63636
+*.color9:   #FF6969
+! Green
+*.color2:   #89B429
+*.color10:  #BDE36B
+! Yellow
+*.color3:   #FD971F
+*.color11:  #FFBE4A
+! Blue
+*.color4:   #0F97FF
+*.color12:  #45BAFF
+! Magenta
+*.color5:   #8C54FE
+*.color13:  #9E6FFE
+! Cyan
+*.color6:   #51828C
+*.color14:  #6CBACF
+! White
+*.color7:   #CCCCC6
+*.color15:  #F8F8F2

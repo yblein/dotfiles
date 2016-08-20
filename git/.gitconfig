@@ -1,0 +1,38 @@
+[user]
+	name = Yoann Blein
+	email = yoann.blein@free.fr
+
+[alias]
+	ci = commit
+	cia = commit -a -v
+	co = checkout
+	st = status
+	br = branch
+	d = diff
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %Cblue(%an)%Creset' --abbrev-commit --date=relative
+	oops = reset --soft HEAD^1
+	grep = grep -n
+	pp = !sh -c 'git pull && git push'
+
+[color]
+	diff = auto
+	ui = auto
+	status = auto
+	branch = auto
+	pager = true
+
+[core]
+	excludesfile = ~/.gitignore
+
+[merge]
+	tool = meld
+
+[mergetool]
+	prompt = false
+	keepBackup = false
+
+[diff]
+	tool = meld
+
+[push]
+	default = simple

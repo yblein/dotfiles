@@ -1,0 +1,3 @@
+editMode: Vi
+bind: ctrl-a esc shift-i
+bind: ctrl-e esc shift-a

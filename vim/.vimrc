@@ -1,0 +1,305 @@
+set nocompatible " Don't inherit any vi craziness
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General
+set background=dark         " Assume a dark background
+filetype plugin on          " Automatically detect file types.
+filetype plugin indent on   " Automatically detect file types.
+syntax on                   " Syntax highlighting
+set mouse=a                 " Automatically enable mouse usage
+set mousehide               " Hide the mouse cursor while typing
+scriptencoding utf-8
+
+if has('clipboard')
+	"set clipboard=unnamed,autoselect " default register * on copy
+	set clipboard=autoselect
+endif
+
+set autowrite                       " Automatically write a file when leaving a modified buffer
+"au FocusLost * :wa                  " Auto save files when losing focus
+set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
+"set virtualedit=onemore             " Allow for cursor beyond last character
+set history=1000                    " Store a ton of history (default is 20)
+"set spell                           " Spell checking on
+"setlocal spell spelllang=en,fr
+set hidden                          " Allow buffer switching without saving
+"set iskeyword-=.                    " '.' is an end of word designator
+"set iskeyword-=#                    " '#' is an end of word designator
+"set iskeyword-=-                    " '-' is an end of word designator
+
+set backup
+set backupdir=~/.backup,.,/tmp " Centralise backup files
+
+" skeletons
+autocmd BufNewFile  *.sh  0r ~/.vim/skeleton.sh|3
+autocmd BufNewFile  *.py  0r ~/.vim/skeleton.py|3
+autocmd BufNewFile  *.cpp 0r ~/.vim/skeleton.cpp|7
+autocmd BufNewFile  *.c   0r ~/.vim/skeleton.c|5
+autocmd BufNewFile  *.go  0r ~/.vim/skeleton.go|3
+
+" Jump to last position when opening a file
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" Instead of reverting the cursor to the last position in the buffer, we
+" set it to the first line when editing a git commit message
+autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+set runtimepath^=~/.vim/bundle/vim-easymotion
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim UI
+if has('cmdline_info')
+	set ruler                   " Show the ruler
+	set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
+	set showcmd                 " Show partial commands in status line and
+endif
+
+if has('statusline')
+	set laststatus=2
+
+	set statusline=%<%f\                     " Filename
+	set statusline+=%w%h%m%r                 " Options
+	"set statusline+=%{fugitive#statusline()} " Git Hotness
+	set statusline+=\ [%{&ff}/%Y]            " Filetype
+	set statusline+=\ [%{getcwd()}]          " Current dir
+	set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+endif
+
+set tabpagemax=15               " Only show 15 tabs
+set showmode                    " Display the current mode
+set cursorline                  " Highlight current line
+set lazyredraw                  " don't redraw while executing macros
+set confirm                     " ask instead of just print errors
+set backspace=indent,eol,start  " Backspace for dummies
+set linespace=0                 " No extra spaces between rows
+set number                      " Line numbers on
+set showmatch                   " Show matching brackets/parenthesis
+set incsearch                   " Find as you type search
+set hlsearch                    " Highlight search terms
+set winminheight=0              " Windows can be 0 line high
+set ignorecase                  " Case insensitive search
+set smartcase                   " Case sensitive when uc present
+set wildmenu                    " Show list instead of just completing
+set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+set wildignorecase
+"set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
+"set scrolljump=5                " Lines to scroll when cursor leaves screen
+set scrolloff=9                 " Minimum lines to keep above and below cursor
+set foldenable                  " Auto fold code
+set list
+set listchars=nbsp:.,tab:›\ ,trail:¤,extends:>,precedes:<,eol:\ 
+set gdefault                    " default global, g for local
+set wrapscan
+set relativenumber
+set completeopt=menuone,menu,longest,preview
+set nrformats=hex ",alpha       " what CTRL-A/CTRL-X allows you to change
+
+" Color
+set t_Co=256
+let g:rehash256=1
+colorscheme molokai
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Formatting
+"set nowrap                      " Do not wrap long lines
+set autoindent                  " Indent at the same level of the previous line
+set shiftwidth=4                " Use indents of 4 spaces
+set tabstop=4                   " An indentation every four columns
+set softtabstop=4               " Let backspace delete indent
+"set expandtab                   " Tabs are spaces, not tabs
+set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
+"set splitright                  " Puts new vsplit windows to the right of the current
+"set splitbelow                  " Puts new split windows to the bottom of the current
+"set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
+
+" Remove trailing whitespaces
+"autocmd FileType c,cpp,java,go,php,javascript,python,twig,xml,yml,perl autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
+" Workaround vim-commentary for Haskell
+autocmd FileType haskell setlocal commentstring=--\ %s
+" Workaround broken colour highlighting in Haskell
+autocmd FileType haskell setlocal nospell
+
+autocmd BufNewFile,BufRead *.elm setf elm
+"autocmd FileType elm setlocal ts=2 sw=2 sts=2 expandtab
+autocmd FileType elm setlocal filetype=haskell
+
+" For all text files set 'textwidth' to 79 characters.
+autocmd FileType text setlocal textwidth=79
+autocmd FileType tex setlocal linebreak
+
+" Makefiles need true tabs
+autocmd FileType ?akefile set noexpandtab
+
+" Indentation
+set cindent
+set cinoptions+=(0s " Line up function args
+set cinoptions+=g0  " Place public: etc. on the same indent as the {
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Key (re)Mappings
+let mapleader = ','
+
+" Easier moving in tabs and windows
+" The lines conflict with the default digraph mapping of <C-K> and
+" redraw mapping of <C-L>
+"map <C-J> <C-W>j<C-W>_
+"map <C-K> <C-W>k<C-W>_
+"map <C-L> <C-W>l<C-W>_
+"map <C-H> <C-W>h<C-W>_
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-L> <C-W>l
+map <C-H> <C-W>h
+
+" Wrapped lines goes down/up to next row, rather than next line in file.
+noremap j gj
+noremap k gk
+
+" The following two lines conflict with moving to top and
+" bottom of the screen
+"map <S-H> gT
+"map <S-L> gt
+
+" Yank from the cursor to the end of the line, to be consistent with C and D.
+nnoremap Y y$
+
+" Find merge conflict markers
+map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
+
+" Shortcuts
+" Change Working Directory to that of the current file
+cmap cwd lcd %:p:h
+cmap cd. lcd %:p:h
+
+" Visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
+
+" Allow using the repeat operator with a visual selection (!)
+" http://stackoverflow.com/a/8064607/127816
+vnoremap . :normal .<CR>
+
+" For when you forget to sudo.. Really Write the file.
+cmap w!! w !sudo tee % >/dev/null
+
+" Adjust viewports to the same size
+map <Leader>= <C-w>=
+
+" Map <Leader>ff to display all lines with keyword under cursor
+" and ask which one to jump to
+nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+
+" Easier formatting?
+"nnoremap <silent> <leader>q gwip
+
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
+
+" Replace word under cursor
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//<Left>
+
+" Execute macro "q" with space
+nmap <Space> @q
+
+" switch between header and C code with f4
+map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+
+" VS-like run shortcut
+map <F5> :!./out<CR>
+imap <F5> <C-o>:!./out<CR>
+map <F7> :wa<CR>:make<CR>
+imap <F7> <C-o>:wa<CR><C-o>:make<CR>
+
+" F8: Silent make
+map <F8> :execute'silent make'<bar>execute'redraw!'<CR>
+
+"set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
+map <F12> :set paste<CR>:startinsert<CR><C-r>*<Esc>:set nopaste<CR>
+imap <F12> <Esc>:set paste<CR>:startinsert<CR><C-r>*<Esc>:set nopaste<CR>a
+
+" Map BS to CTRL+^ (edit alternate file). I like to have a frequently used
+" function like this on a single key
+noremap <BS> :e #<CR>
+
+" Press SHIFT+T to toggle tab size
+function! ToggleTabStop()
+	if &tabstop == 4
+		set ts=8 sw=8 sts=8
+		echo "tab size 8"
+	else
+		set ts=4 sw=4 sts=4
+		echo "tab size 4"
+	endif
+endfunc
+map <S-t> :call ToggleTabStop()<CR>
+
+" Map ENTER to bringing up the command prompt. This is very handy as the ENTER
+" key in normal mode does nothing useful by default and is also the key to
+" confirm a command. Prevent the ENTER key from being remapped for the QuickFix
+" window (we want the normal selection there)
+" TODO: Couldn't this be done using an <expr> mapping?
+function! QuickFixAwareEnter()
+	if &buftype != "quickfix"
+		" Enter command mode
+		call feedkeys(":")
+	else
+		" pass on ENTER key so we can select entries
+		call feedkeys("\<CR>", 'n')
+	endif
+endfunc
+noremap <silent> <CR> :call QuickFixAwareEnter()<CR>
+" Fix for visual mode, as the above doesn't work when trying to run a command on
+" a visual selection
+vnoremap <CR> :
+
+" This puts the cursor back to its starting position when repeating a change
+" with the useful dot command. Taken from http://vim.wikia.com/wiki/VimTip1142
+nnoremap . .`[
+
+" Next, get rid of that stupid goddamned help key that you will invaribly hit
+" constantly while aiming for escape:
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" Exit insert mode without escape
+inoremap jj <ESC>
+inoremap jk <ESC>
+
+" Pair match with tab
+nnoremap <tab> %
+vnoremap <tab> %
+
+"AZERTY keyboard sucks
+nmap ; .
+
+" H to bol, L to eol
+" The following two lines conflict with moving to top and
+" bottom of the screen
+noremap H ^
+noremap L g_
+
+" X11 clipboard
+vmap <C-Insert> "+y
+map  <S-Insert> "+gP
+
+" remove hls for the current search only
+nmap <C-F> :set hls!<CR>
+nnoremap / :set hls<CR>/
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Commands
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+if !exists(":DiffOrig")
+	command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins
+let g:go_fmt_autosave = 0
+let g:rust_recommended_style = 0

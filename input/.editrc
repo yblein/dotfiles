@@ -1,0 +1,3 @@
+bind -v
+bind ^A ed-move-to-beg
+bind ^E ed-move-to-end

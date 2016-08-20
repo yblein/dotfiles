@@ -1,0 +1,3 @@
+set editing-mode vi
+"\C-a": beginning-of-line
+"\C-e": end-of-line
