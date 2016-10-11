@@ -54,3 +54,6 @@ URxvt.foreground: #FFFFFF
 ! White
 *.color7:   #CCCCC6
 *.color15:  #F8F8F2
+
+URxvt.perl-ext-common: fork-here
+URxvt.keysym.Mod4-Shift-Return: perl:fork-here:fork-at-cwd
