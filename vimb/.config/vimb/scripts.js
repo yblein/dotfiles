@@ -177,3 +177,33 @@ function readable()
   _readableScript.setAttribute('src','http://readable-static.tastefulwords.com/target.js?rand='+encodeURIComponent(Math.random()));
   document.getElementsByTagName('body')[0].appendChild(_readableScript);
 }
+
+function inArray(elem, array) {
+	if (array.indexOf) {
+		return array.indexOf( elem );
+	}
+
+	for (var i = 0, length = array.length; i < length; i++) {
+		if (array[i] === elem) {
+			return i;
+		}
+	}
+
+	return -1;
+}
+
+function wiki_language_filter()
+{
+	var languages = ["fr", "en", "simple"];
+
+	var ul = document.querySelector('#p-lang div.body ul');
+	var lis = ul.children;
+
+	for (var i = 0; i < lis.length; ++i) {
+		var lang = lis[i].firstChild.getAttribute('lang');
+		if (inArray(lang, languages) == -1) {
+			ul.removeChild(lis[i]);
+			--i;
+		}
+	}
+}

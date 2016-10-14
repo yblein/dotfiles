@@ -39,3 +39,4 @@ shortcut-add ho=http://www.haskell.org/hoogle/?hoogle=$0
 
 # hooks
 #au LoadCommited http{s,}://news.ycombinator.com/* normal 2zi
+au LoadFinished https://en.wikipedia.org/wiki/Quicksort eval! wiki_language_filter()
