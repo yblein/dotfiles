@@ -38,4 +38,4 @@ shortcut-add gi=https://github.com/search?q=$0
 shortcut-add ho=http://www.haskell.org/hoogle/?hoogle=$0
 
 # hooks
-au LoadCommited http{s,}://news.ycombinator.com/* normal 2zi
+#au LoadCommited http{s,}://news.ycombinator.com/* normal 2zi
