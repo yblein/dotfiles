@@ -1,0 +1,41 @@
+# interesting conf: https://github.com/sdothum/dotfiles/blob/master/vimb/.config/vimb/config
+# about html5 videos: https://blog.jeaye.com/2015/08/23/vimb/
+
+# bindings
+nnoremap d :quit<CR>
+nnoremap q :eval! simplyread()<CR>
+nnoremap Q :eval! readable()<CR>
+nnoremap H <C-o>
+nnoremap L <C-i>
+nnoremap b <C-b>
+nnoremap x :sh! mpv %<CR>
+
+# vimb behavior
+set hintkeys=fjdksla;
+set download-path=/tmp
+set editor-command=urxvt -e vim %s
+set fontsize=12px
+set history-max-items=99999
+set input-autohide=true
+set home-page=https://www.archlinux.org/
+set spell-checking=true
+set webinspector=true
+#set spacial-navigation=true
+
+# Webkit
+#set accelerated-compositing=on
+#set defaultencoding=utf-8
+#set html5-database=on
+#set html5-local-storage=on
+#set images=on
+#set webgl=on
+
+# seach engines
+shortcut-default go
+shortcut-add go=https://encrypted.google.com/search?q=$0
+shortcut-add fl=http://www.google.com/search?ie=UTF-8&oe=UTF-8&sourceid=navclient&gfns=1&q=$0
+shortcut-add gi=https://github.com/search?q=$0
+shortcut-add ho=http://www.haskell.org/hoogle/?hoogle=$0
+
+# hooks
+au LoadCommited http{s,}://news.ycombinator.com/* normal 2zi
