@@ -61,8 +61,8 @@ bindkey -M menuselect '^m' accept-line
 
 #####################################################################
 # PROMPT(s)
-PROMPT="%{$fg[red]%}%(?..[%?] )%{$fg_bold[cyan]%}%T %{$fg_bold[blue]%}%n%{$fg_bold[yellow]%}@%{$reset_color%}%m %{$fg_bold[magenta]%}%30<..<%~%{$fg_bold[yellow]%}%(!.#.$)%{$reset_color%} "
-SPROMPT="zsh: correct '$fg_bold[red]%R$reset_color' to '$fg_bold[green]%r$reset_color' [nyae]? "
+PROMPT="%{$fg[red]%}%(?..[%?]) %{$fg[magenta]%}%30<..<%~%{$fg[yellow]%} %(!.#.>)%{$reset_color%} "
+SPROMPT="zsh: correct '$fg[red]%R$reset_color' to '$fg[green]%r$reset_color' [nyae]? "
 
 #####################################################################
 # OPTIONS

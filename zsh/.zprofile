@@ -16,13 +16,16 @@ export GOMAXPROCS=8
 export PATH="$GOPATH/bin:$PATH"
 export QT_LOGGING_TO_CONSOLE=1
 
+#export LS_COLORS="no=90:fi=0:di=1;32:ln=1;35:so=1;34:pi=1;34:ex=1;33:bd=1;34:cd=1;34:su=1;34:sg=1;34:tw=1;32:ow=1;32"
+
 #color man
-export LESS_TERMCAP_md=$'\E[01;31m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;44;33m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
-export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_mb=$'\e[01;31m'
+export LESS_TERMCAP_md=$'\e[01;35m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[01;36m'
 
 #gnupginf="$HOME/.gpg-agent-info"
 #eval `cat $gnupginf`

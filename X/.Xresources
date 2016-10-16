@@ -26,34 +26,35 @@ URxvt.cursorUnderline:  false
 
 URxvt.scrollBar:        off
 
-! URxvt - Colors
-URxvt.background: #151515
-URxvt.foreground: #FFFFFF
+URxvt.intensityStyles: false
 
-! Black
-*.color0:   #1B1D1E
-*.color8:   #505354
-! Red
-*.color1:   #D63636
-*.color9:   #FF6969
-! Green
-*.color2:   #89B429
-*.color10:  #BDE36B
-! Yellow
-*.color3:   #FD971F
-*.color11:  #FFBE4A
-! Blue
-*.color4:   #0F97FF
-*.color12:  #45BAFF
-! Magenta
-*.color5:   #8C54FE
-*.color13:  #9E6FFE
-! Cyan
-*.color6:   #51828C
-*.color14:  #6CBACF
-! White
-*.color7:   #CCCCC6
-*.color15:  #F8F8F2
+! special
+*.foreground:   #d0d0d0
+*.background:   #1c1c1c
+! black
+*.color0:       #1c1c1c
+*.color8:       #808080
+! red
+*.color1:       #ff005f
+*.color9:       #d7005f
+! green
+*.color2:       #a6e22e
+*.color10:      #7aac18
+! yellow
+*.color3:       #ffbe4a
+*.color11:      #d7a03e
+! blue
+*.color4:       #00bfff
+*.color12:      #0f97ff
+! magenta
+*.color5:       #9e6ffe
+*.color13:      #8652ff
+! cyan
+*.color6:       #00a8b7
+*.color14:      #63aab8
+! white
+*.color7:       #d0d0d0
+*.color15:      #bcbcbc
 
 URxvt.perl-ext-common: fork-here
 URxvt.keysym.Mod4-Shift-Return: perl:fork-here:fork-at-cwd
