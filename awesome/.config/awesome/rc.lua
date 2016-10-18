@@ -92,6 +92,45 @@ end
 -- Create a textclock widget
 mytextclock = awful.widget.textclock(" %a %d %b, %H:%M ")
 
+-- Battery widget
+battery_widget = wibox.widget.textbox()
+battery_widget:set_align("right")
+
+function batteryInfo(adapter)
+	local d = "/sys/class/power_supply/"..adapter
+	local fcap, _ = io.open(d.."/capacity")
+	if fcap == nil then
+		return false
+	end
+	local fsta = io.open(d.."/status")
+	local cap = fcap:read()
+	local sta = fsta:read()
+	fcap:close()
+	fsta:close()
+	local battery = cap
+	local color = beautiful.fg_normal
+	local dir
+	if sta:match("Charging") then
+		dir = "▴"
+	elseif sta:match("Discharging") then
+		dir = "▾"
+		if tonumber(battery) < 25 then
+			color = beautiful.bg_urgent
+		end
+	else
+		dir = ""
+		battery = 100
+	end
+	battery_widget:set_markup("Bat <span color='"..color.."'>"..dir..battery.."%</span> |")
+	return true
+end
+
+if batteryInfo("BAT0") then
+	battery_timer = timer({timeout = 60})
+	battery_timer:connect_signal("timeout", function() batteryInfo("BAT0") end)
+	battery_timer:start()
+end
+
 -- Create a wibox for each screen and add it
 mywibox = {}
 mypromptbox = {}
@@ -171,6 +210,7 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+    right_layout:add(battery_widget)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
