@@ -301,7 +301,12 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end),
 
     -- Lock
-    awful.key({ }, "Scroll_Lock", function() awful.util.spawn("slock") end)
+    awful.key({ }, "Scroll_Lock", function() awful.util.spawn("slock") end),
+
+	-- Screenshot in /tmp
+	awful.key({ modkey }, "Print", function ()
+		awful.util.spawn_with_shell("cd /tmp; scrot", false)
+	end)
 )
 
 clientkeys = awful.util.table.join(
