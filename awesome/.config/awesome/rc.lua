@@ -141,8 +141,8 @@ mytaglist.buttons = awful.util.table.join(
                     awful.button({ modkey }, 1, awful.client.movetotag),
                     awful.button({ }, 3, awful.tag.viewtoggle),
                     awful.button({ modkey }, 3, awful.client.toggletag),
-                    awful.button({ }, 4, function(t) awful.tag.viewnext(awful.tag.getscreen(t)) end),
-                    awful.button({ }, 5, function(t) awful.tag.viewprev(awful.tag.getscreen(t)) end)
+                    awful.button({ }, 4, function(t) awful.tag.viewprev(awful.tag.getscreen(t)) end),
+                    awful.button({ }, 5, function(t) awful.tag.viewnext(awful.tag.getscreen(t)) end)
                     )
 mytasklist = {}
 mytasklist.buttons = awful.util.table.join(
@@ -174,11 +174,11 @@ mytasklist.buttons = awful.util.table.join(
                                               end
                                           end),
                      awful.button({ }, 4, function ()
-                                              awful.client.focus.byidx(1)
+                                              awful.client.focus.byidx(-1)
                                               if client.focus then client.focus:raise() end
                                           end),
                      awful.button({ }, 5, function ()
-                                              awful.client.focus.byidx(-1)
+                                              awful.client.focus.byidx(1)
                                               if client.focus then client.focus:raise() end
                                           end))
 
