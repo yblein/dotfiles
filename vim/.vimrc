@@ -44,8 +44,7 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 " set it to the first line when editing a git commit message
 autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-set runtimepath^=~/.vim/bundle/vim-easymotion
+set path+=**
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim UI
@@ -140,15 +139,10 @@ set cinoptions+=g0  " Place public: etc. on the same indent as the {
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key (re)Mappings
-let mapleader = ','
+let mapleader = ' '
 
-" Easier moving in tabs and windows
-" The lines conflict with the default digraph mapping of <C-K> and
-" redraw mapping of <C-L>
-"map <C-J> <C-W>j<C-W>_
-"map <C-K> <C-W>k<C-W>_
-"map <C-L> <C-W>l<C-W>_
-"map <C-H> <C-W>h<C-W>_
+" Easier moving in windows
+" The lines conflict with the default digraph mapping of <C-K> and redraw mapping of <C-L>
 map <C-J> <C-W>j
 map <C-K> <C-W>k
 map <C-L> <C-W>l
@@ -182,7 +176,7 @@ vnoremap > >gv
 " http://stackoverflow.com/a/8064607/127816
 vnoremap . :normal .<CR>
 
-" For when you forget to sudo.. Really Write the file.
+" For when you forget to sudo. Really Write the file.
 cmap w!! w !sudo tee % >/dev/null
 
 " Adjust viewports to the same size
@@ -202,8 +196,8 @@ inoremap <C-U> <C-G>u<C-U>
 " Replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//<Left>
 
-" Execute macro "q" with space
-nmap <Space> @q
+" Execute macro "q" with Q
+nmap Q @q
 
 " switch between header and C code with f4
 map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
@@ -217,7 +211,7 @@ imap <F7> <C-o>:wa<CR><C-o>:make<CR>
 " F8: Silent make
 map <F8> :execute'silent make'<bar>execute'redraw!'<CR>
 
-"set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
+"set pastetoggle=<F12>
 map <F12> :set paste<CR>:startinsert<CR><C-r>*<Esc>:set nopaste<CR>
 imap <F12> <Esc>:set paste<CR>:startinsert<CR><C-r>*<Esc>:set nopaste<CR>a
 
@@ -282,6 +276,9 @@ nmap ; .
 " bottom of the screen
 noremap H ^
 noremap L g_
+
+noremap gh ^
+noremap gl g_
 
 " X11 clipboard
 vmap <C-Insert> "+y
