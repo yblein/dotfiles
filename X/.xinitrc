@@ -7,7 +7,6 @@ xrdb .Xresources
 
 # apps
 xfce4-power-manager&
-urxvtd&
 
 # launch WM
 exec awesome

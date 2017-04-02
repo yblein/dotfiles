@@ -42,7 +42,7 @@ end
 beautiful.init("/home/yb/.config/awesome/theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "urxvtc"
+terminal = "st"
 editor = os.getenv("EDITOR")
 editor_cmd = terminal .. " -e " .. editor
 
