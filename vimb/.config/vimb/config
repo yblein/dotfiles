@@ -14,13 +14,21 @@ nnoremap x :sh! mpv %<CR>
 set hintkeys=fjdksla;
 set download-path=/tmp
 set editor-command=st -e vim %s
-set fontsize=12px
+#set fontsize=12px
 set history-max-items=99999
 set input-autohide=true
 set home-page=https://www.archlinux.org/
 set spell-checking=true
 set webinspector=true
 #set spacial-navigation=true
+
+# vimb theme
+set completion-font=xos4 Terminus
+set input-font-error=xos4 Terminus bold
+set input-font-normal=xos4 Terminus bold
+set status-font=xos4 Terminus bold
+set status-ssl-font=xos4 Terminus bold
+set status-sslinvalid-font=xos4 Terminus bold
 
 # Webkit
 #set accelerated-compositing=on

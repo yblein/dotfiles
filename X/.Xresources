@@ -18,8 +18,8 @@ URxvt.internalBorder:   1
 URxvt.borderColor:      #151515
 URxvt.borderLess:       false
 URxvt.depth:            32
-URxvt.font:             xft:terminus:pixelsize=14:antialias=false:hinting=false
-URxvt.boldFont:         xft:terminus:pixelsize=14:antialias=false:hinting=false
+*.font:           -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
+*.boldFont:       -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
 
 URxvt.cursorBlink:      false
 URxvt.cursorUnderline:  false

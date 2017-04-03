@@ -1,14 +1,9 @@
-/* light yellow background on all pages
-body {
-	background-color: #fdf6e3 !important;
-}
-*/
-
 ._hintLabel {
 	-webkit-transform:translate(-4px,-4px);
 	position: absolute;
 	z-index: 100000;
 	font: 1.0em monospace !important;
+	font-family: xos4 Terminus !important;
 	font-weight: bold !important;
 	color: #000;
 	/* background-color: #fff; */
