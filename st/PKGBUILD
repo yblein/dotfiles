@@ -14,11 +14,9 @@ epoch=1
 source=(
 	'git://git.suckless.org/st#commit=c63a87c'
 	'colors.diff'
-	'delkey.diff'
 	'scrollback.diff'
 )
 sha1sums=(
-	'SKIP'
 	'SKIP'
 	'SKIP'
 	'SKIP'
@@ -49,7 +47,7 @@ prepare() {
 	done
 	
 	sed \
-		-e '/char font/s/= .*/= "xos4 Terminus:size=11";/' \
+		-e '/char font/s/= .*/= "xos4 Terminus:size=12:antialias=false";/' \
 		-e '/char worddelimiters/s/= .*/= " '"'"'`\\\"()[]{}<>|";/' \
 		-e '/int defaultcs/s/= .*/= 7;/' \
 		-e '/int borderpx/s/= .*/= 1;/' \
@@ -62,7 +60,6 @@ prepare() {
 	#	-i config.mk
 	sed \
 		-e '/@tic/d' \
-		-e '/all/s/options //' \
 		-i Makefile
 
 	# clean up old config file
