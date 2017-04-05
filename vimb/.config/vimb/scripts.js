@@ -1,3 +1,68 @@
+function getStyle(className) {
+    var classes = document.styleSheets[0].rules || document.styleSheets[0].cssRules;
+    for (var x = 0; x < classes.length; x++) {
+        if (classes[x].selectorText == className) {
+            (classes[x].cssText) ? console.log(classes[x].cssText) : console.log(classes[x].style.cssText);
+        }
+    }
+}
+
+function darkify()
+{
+	var doc = (document.body === undefined) ? window.content.document : document;
+    //doc.simplyread_original = false
+
+	srstyle = [
+		"*,div,pre,textarea,body,input,td,tr,p {",
+		"	background-color: #282828 !important;",
+		"	background-image: none !important;",
+		"	color: #ebdbb2 !important;",
+		"	font-family: xos4 Terminus !important;",
+		"	font-size: 16px !important;",
+		"	font-style: normal !important;",
+		"}",
+		"h1 {",
+		"	color: #fe8019 !important;",
+		"	font-size: 20px !important;",
+		"}",
+		"h2,h3,h4 {",
+		"	color: #fe8019 !important;",
+		"}",
+		"a {",
+		"	color: #8ec07c !important;",
+		"}",
+		"a:hover,a:focus {",
+		"	color: #8ec07c !important;",
+		"}",
+		"a:visited {",
+		"	color: #d3869b !important;",
+		"}",
+		"img {",
+		"	opacity: .6;",
+		"}",
+		"img:hover {",
+		"	opacity: 1;",
+		"}",
+		"._hintLabel {",
+		"	/* text-transform: uppercase !important; */",
+		"	background-color: #e0e070 !important;",
+		"	font-size: .9em !important;",
+		"	color: #000 !important;",
+		"	opacity: 0.4;",
+		"}",
+		"._hintElem._hintFocus {",
+		"	color: #f0f070 !important;",
+		"}",
+		"._hintElem._hintFocus img {",
+		"	opacity: 1;",
+		"}"
+	].join('\n');
+
+  doc.body.innerHTML +=
+    "<style type=\"text/css\">" + srstyle + "</style>";
+
+  return 0;
+}
 /* lifted from http://njw.me.uk/simplyread/ */
 
 if (window.content && window.content.document && window.content.document.simplyread_original === undefined) {

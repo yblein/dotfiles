@@ -3,8 +3,8 @@
 
 # bindings
 nnoremap d :quit<CR>
-nnoremap q :eval! simplyread()<CR>
-nnoremap Q :eval! readable()<CR>
+nnoremap q :set stylesheet!<CR>
+nnoremap Q :eval! simplyread()<CR>
 nnoremap H <C-o>
 nnoremap L <C-i>
 nnoremap b <C-b>
@@ -31,11 +31,9 @@ set status-ssl-font=xos4 Terminus bold
 set status-sslinvalid-font=xos4 Terminus bold
 
 # Webkit
-#set accelerated-compositing=on
-#set defaultencoding=utf-8
-#set html5-database=on
-#set html5-local-storage=on
-#set images=on
+set webinspector=true
+set minimumfontsize=11px
+#set accelerated-compositing=true
 #set webgl=on
 
 # seach engines
@@ -47,4 +45,4 @@ shortcut-add ho=http://www.haskell.org/hoogle/?hoogle=$0
 
 # hooks
 #au LoadCommited http{s,}://news.ycombinator.com/* normal 2zi
-au LoadFinished https://en.wikipedia.org/wiki/Quicksort eval! wiki_language_filter()
+au LoadFinished https://en.wikipedia.org/wiki/* eval! wiki_language_filter()
