@@ -149,11 +149,9 @@ function batteryInfo(adapter)
 end
 
 if batteryInfo("BAT0") then
-	gears.timer {
-		timeout   = 60,
-		autostart = true,
-		callback  = function() batteryInfo("BAT0") end
-	}
+	gears.timer.start_new(60, function()
+		return batteryInfo("BAT0")
+	end)
 end
 
 -- Create a wibox for each screen and add it
