@@ -110,6 +110,9 @@ function bak () { cp -r "$1" "$1.bak" }
 function sdm() { udisksctl mount -b "/dev/sd$1" }
 function sdu() { udisksctl unmount -b "/dev/sd$1" }
 function twitch() { mpv --ytdl-format "[tbr<2000]" "http://www.twitch.tv/$1" }
+function y() {
+	pacaur -S $(pacaur --color=always -Ss $@ | sed '$!N;s/\n    / /' | fzf --ansi -m | cut -d " " -f 1)
+}
 
 #####################################################################
 # TERMINAL TITLE (for X terminals)
@@ -121,22 +124,17 @@ preexec () { print -Pn "\e]0;[%n@%M][%~]%# ($1)\a" }
 alias ls='ls --color=auto -F'
 alias l='ls -lh'
 alias ll='l -a'
-alias ukill='pkill -KILL -u'
-alias ..='cd ..'
 alias grep='grep --color=auto'
-alias gr='grep -nr'
 alias v='vim'
 alias vi='vim'
 alias sv='sudo vim'
 alias spm="sudo pacman"
-alias y='yaourt'
-alias s='yaourt -S'
+alias s='pacaur -S'
 alias r='sudo pacman -Rsn'
 alias u='sudo pacman -Syu'
 alias i='pacman -Qi'
 alias k='killall'
 alias c='cat'
-#alias rm='rm -v'
 alias cp='cp -i'
 alias px='chmod +x'
 alias z='zathura'
@@ -147,6 +145,7 @@ alias t='st&'
 alias diff='colordiff'
 alias rr='rm -r'
 alias x='sxiv'
+alias path='echo -e ${PATH//:/\\n}'
 
 #####################################################################
 # AUTO LS
