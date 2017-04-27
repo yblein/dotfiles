@@ -95,9 +95,13 @@ set completeopt=menuone,menu,longest,preview
 set nrformats=hex ",alpha       " what CTRL-A/CTRL-X allows you to change
 
 " Color
-set t_Co=256
-let g:rehash256=1
-colorscheme molokai
+"set t_Co=256
+"let g:rehash256=1
+"colorscheme molokai
+colorscheme gruvbox
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Formatting
