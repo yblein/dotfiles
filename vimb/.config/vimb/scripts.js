@@ -132,7 +132,7 @@ function simplyread(nostyle, nolinks)
   srstyle =
     "* {" +
     "  color: #000;" +
-    "  font-family: Arial, sans-serif;" +
+    "  font-family: sans-serif;" +
     "}" +
     "body {" +
     "  background: #fdf6e3 none;" +
@@ -150,8 +150,8 @@ function simplyread(nostyle, nolinks)
     "  text-transform: lowercase;" +
     "}" +
     "p {" +
-    "  color: #444;" +
-    "  font-family: Verdana, sans-serif;" +
+    "  color: #222;" +
+    "  font-family: sans-serif;" +
     "  line-height: 1.65em;" +
     "  margin: 0 auto;" +
     "  padding-bottom: 1.35em;" +
@@ -162,7 +162,7 @@ function simplyread(nostyle, nolinks)
     "}" +
     "p a {" +
     "  color: #B3431E;" +
-    "  font-family: Verdana, sans-serif;" +
+    "  font-family: sans-serif;" +
     "}" +
     "li {" +
     "  padding-bottom: 0.55em;" +
@@ -170,7 +170,7 @@ function simplyread(nostyle, nolinks)
     "code {" +
     "  color: #4B4D4E;" +
     "  display: block;" +
-    "  font-family: Inconsolata, monospace;" +
+    "  font-family: monospace;" +
     "  font-size: 0.85em;" +
     "  line-height: 1.45em; " +
     "  text-indent: 0em;" +

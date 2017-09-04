@@ -3,8 +3,6 @@
 	position: absolute;
 	z-index: 100000;
 	font: 1.0em monospace !important;
-	font-family: xos4 Terminus !important;
-	font-weight: bold !important;
 	color: #000;
 	/* background-color: #fff; */
 	background-color: #ff0 !important;
@@ -35,7 +33,7 @@
 	color: #fff !important;
 }
 
-/* @media DISABLED { */
+ @media DISABLED {
 /* Dark theme everywhere */
 *,div,pre,textarea,body,input,td,tr,p {
 	background-color: #282828 !important;
@@ -80,4 +78,9 @@ img:hover {
 ._hintElem._hintFocus img {
     opacity: 1;
 }
-/*}*/
+}
+
+/* hide startpage ads */
+#bottom-result-container #spon_links { display: none !important; }
+#bottom-result-container #sponsored_csa1 { display: none !important; }
+#bottom-result-container #sponsored_csa2 { display: none !important; }

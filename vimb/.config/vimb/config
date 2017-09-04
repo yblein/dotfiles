@@ -1,6 +1,3 @@
-# interesting conf: https://github.com/sdothum/dotfiles/blob/master/vimb/.config/vimb/config
-# about html5 videos: https://blog.jeaye.com/2015/08/23/vimb/
-
 # bindings
 nnoremap d :quit<CR>
 nnoremap q :set stylesheet!<CR>
@@ -9,40 +6,38 @@ nnoremap H <C-o>
 nnoremap L <C-i>
 nnoremap b <C-b>
 nnoremap x :sh! mpv %<CR>
+nnoremap M :set user-agent='Mozilla/5.0 (Linux; U; Android 2.3; en-us) AppleWebKit/999+ (KHTML, like Gecko) Safari/999.9'<CR> # Mobile UA
 
 # vimb behavior
-set hintkeys=fjdksla;
+set hint-keys=fjdksla;
 set download-path=/tmp
 set editor-command=st -e vim %s
-#set fontsize=12px
-set history-max-items=99999
+set history-max-items=65536
 set input-autohide=true
 set home-page=https://www.archlinux.org/
 set spell-checking=true
 set webinspector=true
-#set spacial-navigation=true
 
 # vimb theme
-set completion-font=xos4 Terminus
-set input-font-error=xos4 Terminus bold
-set input-font-normal=xos4 Terminus bold
-set status-font=xos4 Terminus bold
-set status-ssl-font=xos4 Terminus bold
-set status-sslinvalid-font=xos4 Terminus bold
+set completion-css=font:xos4 Terminus; background-color: #282828; color: #ebdbb2
+set input-css=font:xos4 Terminus bold
+set input-error-css=font:xos4 Terminus bold; background-color:#f77
+set status-css=font:xos4 Terminus bold
+#set status-ssl-css=
+#set status-ssl-invalid-css=
 
 # Webkit
 set webinspector=true
-set minimumfontsize=11px
-#set accelerated-compositing=true
+set minimum-font-size=15px
 #set webgl=on
 
 # seach engines
-shortcut-default go
-shortcut-add go=https://encrypted.google.com/search?q=$0
-shortcut-add fl=http://www.google.com/search?ie=UTF-8&oe=UTF-8&sourceid=navclient&gfns=1&q=$0
+shortcut-default sp
+shortcut-add g=https://encrypted.google.com/search?q=$0
+shortcut-add fl=https://www.google.com/search?ie=UTF-8&oe=UTF-8&sourceid=navclient&gfns=1&q=$0
 shortcut-add gi=https://github.com/search?q=$0
-shortcut-add ho=http://www.haskell.org/hoogle/?hoogle=$0
+shortcut-add ho=https://www.haskell.org/hoogle/?hoogle=$0
+shortcut-add sp=https://www.startpage.com/do/dsearch?query=$0
 
-# hooks
-#au LoadCommited http{s,}://news.ycombinator.com/* normal 2zi
-au LoadFinished https://en.wikipedia.org/wiki/* eval! wiki_language_filter()
+# hooks (not supported yet in vimb3)
+#au LoadFinished https://en.wikipedia.org/wiki/* eval! wiki_language_filter()
