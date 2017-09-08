@@ -5,7 +5,7 @@ theme = {}
 
 theme.font       = "artwiz snap 8"
 theme.icon_theme = nil
-theme.wallpaper  = theme_dir .. "arch_minimal_no_circle.svg"
+theme.wallpaper  = theme_dir .. "arch_logo.svg"
 
 -- Colors
 --to trye : bg     = "#262729"
