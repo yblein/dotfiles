@@ -33,6 +33,11 @@
 	color: #fff !important;
 }
 
+/* Display content in sans serif */
+p, li {
+	font-family: sans-serif !important;
+}
+
  @media DISABLED {
 /* Dark theme everywhere */
 *,div,pre,textarea,body,input,td,tr,p {
@@ -84,3 +89,6 @@ img:hover {
 #bottom-result-container #spon_links { display: none !important; }
 #bottom-result-container #sponsored_csa1 { display: none !important; }
 #bottom-result-container #sponsored_csa2 { display: none !important; }
+
+/* hide reddit ads */
+#siteTable_organic { display: none !important; }
