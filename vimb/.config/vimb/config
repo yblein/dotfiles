@@ -7,6 +7,8 @@ nnoremap L <C-i>
 nnoremap b <C-b>
 nnoremap x :sh! mpv %<CR>
 nnoremap M :set user-agent='Mozilla/5.0 (Linux; U; Android 2.3; en-us) AppleWebKit/999+ (KHTML, like Gecko) Safari/999.9'<CR>
+nnoremap ci :sh! chromium --incognito %<CR>
+nnoremap ch :sh! chromium %<CR>
 
 # vimb behavior
 set hint-keys=fjdksla;
@@ -43,4 +45,4 @@ shortcut-add dd=https://duckduckgo.com/lite/?q=$0
 shortcut-add aur=https://aur.archlinux.org/packages/?K=$0
 
 # hooks (not supported yet in vimb3)
-au LoadFinished https://en.wikipedia.org/wiki/* eval! wiki_language_filter()
+au LoadFinished https://*wikipedia.org/wiki/* eval! wiki_language_filter()
