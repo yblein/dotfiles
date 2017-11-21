@@ -14,14 +14,14 @@ index a719e36..a49a7ef 100644
 -	"magenta3",
 -	"cyan3",
 -	"gray90",
-+	"#1c1c1c",
-+	"#ff005f",
-+	"#a6e22e",
-+	"#ffbe4a",
-+	"#00bfff",
-+	"#9e6ffe",
-+	"#00a8b7",
-+	"#d0d0d0",
++	"#282828",
++	"#fb4934",
++	"#b8bb26",
++	"#fabd2f",
++	"#83a598",
++	"#fe8019",
++	"#8ec07c",
++	"#ebdbb2",
  
  	/* 8 bright colors */
 -	"gray50",
@@ -32,22 +32,22 @@ index a719e36..a49a7ef 100644
 -	"magenta",
 -	"cyan",
 -	"white",
-+	"#808080",
-+	"#d7005f",
-+	"#7aac18",
-+	"#d7a03e",
-+	"#0f97ff",
-+	"#8652ff",
-+	"#63aab8",
-+	"#bcbcbc",
++	"#928374",
++	"#cc241d",
++	"#98971a",
++	"#d79921",
++	"#458588",
++	"#d65d0e",
++	"#689d6a",
++	"#a89984",
  
  	[255] = 0,
  
-diff --git a/st.c b/st.c
-index fbcd9e0..907cf13 100644
---- a/st.c
-+++ b/st.c
-@@ -3855,7 +3855,7 @@ xdrawglyphfontspecs(const XftGlyphFontSpec *specs, Glyph base, int len, int x, i
+diff --git a/x.c b/x.c
+index fbfd350..42a0ff3 100644
+--- a/x.c
++++ b/x.c
+@@ -1158,7 +1158,7 @@ xdrawglyphfontspecs(const XftGlyphFontSpec *specs, Glyph base, int len, int x, i
  
  	/* Change basic system colors [0-7] to bright system colors [8-15] */
  	if ((base.mode & ATTR_BOLD_FAINT) == ATTR_BOLD && BETWEEN(base.fg, 0, 7))
