@@ -28,11 +28,12 @@ set hidden                          " Allow buffer switching without saving
 "set iskeyword-=-                    " '-' is an end of word designator
 
 " skeletons
-autocmd BufNewFile  *.sh  0r ~/.vim/skeleton.sh|3
-autocmd BufNewFile  *.py  0r ~/.vim/skeleton.py|3
-autocmd BufNewFile  *.cpp 0r ~/.vim/skeleton.cpp|7
-autocmd BufNewFile  *.c   0r ~/.vim/skeleton.c|5
-autocmd BufNewFile  *.go  0r ~/.vim/skeleton.go|3
+autocmd BufNewFile  *.sh  0r ~/.vim/templates/t.sh|3
+autocmd BufNewFile  *.py  0r ~/.vim/templates/t.py|3
+autocmd BufNewFile  *.cpp 0r ~/.vim/templates/t.cpp|7
+autocmd BufNewFile  *.c   0r ~/.vim/templates/t.c|5
+autocmd BufNewFile  *.go  0r ~/.vim/templates/t.go|3
+autocmd BufNewFile  *.rs  0r ~/.vim/templates/t.rs|2
 
 " Jump to last position when opening a file
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
