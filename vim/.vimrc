@@ -27,9 +27,6 @@ set hidden                          " Allow buffer switching without saving
 "set iskeyword-=#                    " '#' is an end of word designator
 "set iskeyword-=-                    " '-' is an end of word designator
 
-set backup
-set backupdir=~/.backup,.,/tmp " Centralise backup files
-
 " skeletons
 autocmd BufNewFile  *.sh  0r ~/.vim/skeleton.sh|3
 autocmd BufNewFile  *.py  0r ~/.vim/skeleton.py|3
