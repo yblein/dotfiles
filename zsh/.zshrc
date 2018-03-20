@@ -95,6 +95,8 @@ setopt share_history
 autoload -Uz edit-command-line
 zle -N edit-command-line
 
+KEYTIMEOUT=1 # faster vim mode switch
+
 bindkey -v
 # edit command line
 bindkey -M vicmd 'q' edit-command-line
