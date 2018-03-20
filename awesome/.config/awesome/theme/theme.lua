@@ -1,4 +1,6 @@
-theme_dir = os.getenv("XDG_CONFIG_HOME") .. "/awesome/theme/"
+local gears = require("gears")
+
+theme_dir = gears.filesystem.get_configuration_dir() .. "theme/"
 layouts = "/usr/share/awesome/themes/default/layouts/"
 
 theme = {}
