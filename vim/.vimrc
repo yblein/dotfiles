@@ -166,12 +166,10 @@ vnoremap . :normal .<CR>
 " For when you forget to sudo. Really Write the file.
 cmap w!! w !sudo tee % >/dev/null
 
-" Adjust viewports to the same size
-map <Leader>= <C-w>=
-
 " Map <Leader>ff to display all lines with keyword under cursor
 " and ask which one to jump to
-nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+"nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+nmap <Leader>ff :vimgrep /\<<C-r><C-w>\>/j *<CR>
 
 " Easier formatting?
 "nnoremap <silent> <leader>q gwip
@@ -224,12 +222,15 @@ map <S-t> :call ToggleTabStop()<CR>
 " window (we want the normal selection there)
 " TODO: Couldn't this be done using an <expr> mapping?
 function! QuickFixAwareEnter()
-	if &buftype != "quickfix"
-		" Enter command mode
-		call feedkeys(":")
-	else
+	if &buftype == "quickfix"
 		" pass on ENTER key so we can select entries
 		call feedkeys("\<CR>", 'n')
+	elseif &buftype == "help"
+		" follow tag
+		call feedkeys("\<C-]>")
+	else
+		" Enter command mode
+		call feedkeys(":")
 	endif
 endfunc
 noremap <silent> <CR> :call QuickFixAwareEnter()<CR>
@@ -274,6 +275,13 @@ map  <S-Insert> "+gP
 " remove hls for the current search only
 nmap <C-F> :set hls!<CR>
 nnoremap / :set hls<CR>/
+
+" auto open quickfix
+augroup myvimrc
+	autocmd!
+	autocmd QuickFixCmdPost [^l]* cwindow
+	autocmd QuickFixCmdPost l*    lwindow
+augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Commands
