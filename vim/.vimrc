@@ -8,7 +8,6 @@ filetype plugin indent on   " Automatically detect file types.
 syntax on                   " Syntax highlighting
 set mouse=a                 " Automatically enable mouse usage
 set mousehide               " Hide the mouse cursor while typing
-scriptencoding utf-8
 
 if has('clipboard')
 	"set clipboard=unnamed,autoselect " default register * on copy
@@ -80,6 +79,7 @@ set smartcase                   " Case sensitive when uc present
 set wildmenu                    " Show list instead of just completing
 set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
 set wildignorecase
+set wildignore+=*.ibc,*.o,*.hi
 "set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
 "set scrolljump=5                " Lines to scroll when cursor leaves screen
 set scrolloff=9                 " Minimum lines to keep above and below cursor
@@ -108,31 +108,16 @@ set autoindent                  " Indent at the same level of the previous line
 set shiftwidth=4                " Use indents of 4 spaces
 set tabstop=4                   " An indentation every four columns
 set softtabstop=4               " Let backspace delete indent
-"set expandtab                   " Tabs are spaces, not tabs
 set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
-"set splitright                  " Puts new vsplit windows to the right of the current
-"set splitbelow                  " Puts new split windows to the bottom of the current
-"set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
 
 " Remove trailing whitespaces
 "autocmd FileType c,cpp,java,go,php,javascript,python,twig,xml,yml,perl autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
-" Workaround vim-commentary for Haskell
-autocmd FileType haskell setlocal commentstring=--\ %s
-" Workaround broken colour highlighting in Haskell
-autocmd FileType haskell setlocal nospell
+" expand tabs for whitespace-sensitive languages
+autocmd FileType haskell,python setlocal expandtab shiftwidth=2 softtabstop=2
 
-autocmd BufNewFile,BufRead *.elm setf elm
-"autocmd FileType elm setlocal ts=2 sw=2 sts=2 expandtab
-autocmd FileType elm setlocal filetype=haskell
-
-" For all text files set 'textwidth' to 79 characters.
-autocmd FileType text setlocal textwidth=79
-autocmd FileType tex setlocal linebreak
-
-" Makefiles need true tabs
-autocmd FileType ?akefile set noexpandtab
+" for text files, activate spell checking and only wrap in between words
+autocmd FileType text,tex,markdown,mail,gitcommit setlocal spell linebreak
 
 " Indentation
 set cindent
