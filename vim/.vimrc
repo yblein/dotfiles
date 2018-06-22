@@ -256,9 +256,6 @@ inoremap jk <ESC>
 nnoremap <tab> %
 vnoremap <tab> %
 
-"AZERTY keyboard sucks
-nmap ; .
-
 " H to bol, L to eol
 " The following two lines conflict with moving to top and
 " bottom of the screen
