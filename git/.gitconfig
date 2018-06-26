@@ -6,7 +6,7 @@
 	ci = commit
 	cia = commit -a -v
 	co = checkout
-	st = status
+	st = status --short --branch
 	br = branch
 	d = diff
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %Cblue(%an)%Creset' --abbrev-commit --date=relative
