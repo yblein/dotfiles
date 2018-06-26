@@ -34,7 +34,7 @@
 	keepBackup = false
 
 [diff]
-	tool = meld
+	tool = vimdiff
 	algorithm = histogram
 
 [push]
