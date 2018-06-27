@@ -1,12 +1,12 @@
-# X stuff
-xinput disable 'AlpsPS/2 ALPS DualPoint TouchPad'
-xset r rate 250 30
+setxkbmap us
 setxkbmap -option caps:escape
 setxkbmap -option compose:menu
-xrdb .Xresources
+setxkbmap -option caps:escape
+setxkbmap -option altwin:swap_lalt_lwin
 
-# apps
-xfce4-power-manager&
+xset r rate 250 30
+#xset m 1/1 4
 
-# launch WM
+xmodmap -e "keycode 94 = backslash bar"
+
 exec awesome
