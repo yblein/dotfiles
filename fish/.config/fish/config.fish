@@ -1,5 +1,4 @@
 # fish config
-fish_vi_key_bindings
 set -x fish_greeting
 
 function autols --on-event fish_preexec
@@ -9,6 +8,10 @@ function autols --on-event fish_preexec
 end
 
 function newline --on-event fish_postexec
+	set ret $status
+	if test $ret -ne 0
+		echo -s "→ " (set_color red) $ret (set_color normal)
+	end
 	printf "\n"
 end
 
