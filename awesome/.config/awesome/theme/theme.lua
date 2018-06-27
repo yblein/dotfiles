@@ -5,7 +5,8 @@ layouts = "/usr/share/awesome/themes/default/layouts/"
 
 theme = {}
 
-theme.font       = "artwiz snap 8"
+--theme.font       = "artwiz snap 8"
+theme.font       = "xos4 Terminus 8"
 theme.icon_theme = nil
 theme.wallpaper  = theme_dir .. "arch_logo.svg"
 
