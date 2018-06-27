@@ -52,13 +52,15 @@ if has('cmdline_info')
 endif
 
 if has('statusline')
+	let cwd = pathshorten(fnamemodify(getcwd(), ':~'))
 	set laststatus=2
 
-	set statusline=%<%f\                     " Filename
+	"set statusline=%{pathshorten(&f)}
+	set statusline=%<%f                      " Filename
 	set statusline+=%w%h%m%r                 " Options
 	"set statusline+=%{fugitive#statusline()} " Git Hotness
-	set statusline+=\ [%{&ff}/%Y]            " Filetype
-	set statusline+=\ [%{getcwd()}]          " Current dir
+	set statusline+=\ (%{&ff}/%Y)            " Filetype
+	set statusline+=\ [%{cwd}]               " Current dir
 	set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 endif
 
