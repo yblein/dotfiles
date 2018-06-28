@@ -14,6 +14,7 @@ path+=(
 	$HOME/.cargo/bin
 	$GOPATH/bin
 	$HOME/bin
+	$HOME/.local/bin
 )
 
 #color man
