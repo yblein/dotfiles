@@ -39,6 +39,7 @@ function sdu() { udisksctl unmount -b "/dev/sd$1" }
 function y() {
 	pacaur -S $(pacaur --color=always -Ss $@ | sed '$!N;s/\n    / /' | fzf --ansi -m | cut -d " " -f 1)
 }
+function mktgz() { tar czf "$1.tar.gz" "$1" }
 
 #
 # Colors
