@@ -25,6 +25,7 @@ alias x='sxiv'
 alias rr='rm -r'
 alias t='st&'
 
+alias dots='GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME git'
 alias path='echo -e ${PATH//:/\\n}'
 alias sheep="mpv --no-video --ytdl-format=bestaudio 'http://www.youtube.com/playlist?list=PLDfKAXSi6kUakvzXfiA0DdSl-OzBi2fVt' --shuffle"
 
