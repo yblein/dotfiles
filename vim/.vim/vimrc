@@ -129,6 +129,7 @@ set cinoptions+=g0  " Place public: etc. on the same indent as the {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key (re)Mappings
 let mapleader = ' '
+"let maplocalleader = ','
 
 " Easier moving in windows
 " The lines conflict with the default digraph mapping of <C-K> and redraw mapping of <C-L>
