@@ -20,6 +20,7 @@ set home-page=https://www.archlinux.org/
 set spell-checking=true
 set webinspector=true
 set scroll-step=80
+set incsearch=true
 
 # vimb theme
 set completion-css=font:xos4 Terminus; background-color: #282828; color: #ebdbb2
@@ -43,6 +44,10 @@ shortcut-add ho=https://www.haskell.org/hoogle/?hoogle=$0
 shortcut-add sp=https://www.startpage.com/do/dsearch?query=$0
 shortcut-add dd=https://duckduckgo.com/lite/?q=$0
 shortcut-add aur=https://aur.archlinux.org/packages/?K=$0
+shortcut-add qw=https://lite.qwant.com/?q=$0
+shortcut-add r=https://old.reddit.com/r/$0
+shortcut-add scholar=https://scholar.google.com/scholar?q=$0
+shortcut-add dblp=http://dblp.org/search?q=$0
 
-# hooks (not supported yet in vimb3)
+# hooks
 au LoadFinished https://*wikipedia.org/wiki/* eval! wiki_language_filter()
