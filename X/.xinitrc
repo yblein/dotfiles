@@ -9,4 +9,9 @@ xset r rate 250 30
 
 xmodmap -e "keycode 94 = backslash bar"
 
+
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye > /dev/null
+
+
 exec awesome
