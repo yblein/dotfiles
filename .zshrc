@@ -277,5 +277,5 @@ zstyle ':completion:*:processes-names' command 'ps c -u $USER -o command'
 # Custom completions
 fpath+=~/.zfunc
 
-#source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
