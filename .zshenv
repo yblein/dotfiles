@@ -9,6 +9,11 @@ export GOPATH="$HOME/prog/go"
 export QT_LOGGING_TO_CONSOLE=1
 export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
 
+# fzf settings
+export FZF_DEFAULT_COMMAND="fd --type file --color=always"
+export FZF_DEFAULT_OPTS="--ansi"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 typeset -U path # remove duplicates in path
 path+=(
 	$HOME/.cargo/bin
