@@ -120,6 +120,7 @@ autocmd FileType haskell,python setlocal expandtab shiftwidth=2 softtabstop=2
 
 " for text files, activate spell checking and only wrap in between words
 autocmd FileType text,tex,markdown,mail,gitcommit setlocal spell linebreak
+let g:tex_flavor = "latex"
 
 " Indentation
 set cindent
