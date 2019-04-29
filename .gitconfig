@@ -43,3 +43,6 @@
 
 [url "https://aur.archlinux.org/"]
     insteadOf = aur:
+
+[url "https://github.com/"]
+    insteadOf = gh:
