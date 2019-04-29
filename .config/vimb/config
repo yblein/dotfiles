@@ -35,7 +35,7 @@ set webinspector=true
 set minimum-font-size=15px
 #set webgl=on
 
-# seach engines
+# shortcuts
 shortcut-default sp
 shortcut-add g=https://www.google.com/search?q=$0
 shortcut-add fl=https://www.google.com/search?ie=UTF-8&oe=UTF-8&sourceid=navclient&gfns=1&q=$0
@@ -48,6 +48,9 @@ shortcut-add qw=https://lite.qwant.com/?q=$0
 shortcut-add r=https://old.reddit.com/r/$0
 shortcut-add scholar=https://scholar.google.com/scholar?q=$0
 shortcut-add dblp=http://dblp.org/search?q=$0
+shortcut-add hn=https://news.ycombinator.com/
+shortcut-add fren=https://www.wordreference.com/fren/$0
+shortcut-add enfr=https://www.wordreference.com/enfr/$0
 
 # hooks
 au LoadFinished https://*wikipedia.org/wiki/* eval! wiki_language_filter()
