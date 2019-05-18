@@ -392,7 +392,15 @@ clientkeys = awful.util.table.join(
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
-    awful.key({ modkey, ""        }, ";", function (c) c:swap(awful.client.getmaster()) end,
+    awful.key({ modkey, ""        }, ";",
+        function (c)
+            -- dwm's zoom
+            if awful.client.getmaster() == c then
+                c:swap(awful.client.next(1), c)
+            else
+                c:swap(awful.client.getmaster())
+            end
+        end,
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
