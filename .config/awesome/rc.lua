@@ -374,7 +374,7 @@ globalkeys = awful.util.table.join(
 
 	-- Screenshot in /tmp
 	awful.key({ modkey }, "Print", function ()
-			awful.spawn_with_shell("cd /tmp; scrot", false)
+			awful.spawn.with_shell("cd /tmp; scrot", false)
 		end,
 		{description = "screenshot in /tmp", group = "launcher"})
 )
