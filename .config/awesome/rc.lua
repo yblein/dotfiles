@@ -368,10 +368,6 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
 
-    -- Lock
-    awful.key({ }, "Scroll_Lock", function() awful.spawn("slock") end,
-              {description = "sreen lock", group = "launcher"}),
-
 	-- Screenshot in /tmp
 	awful.key({ modkey }, "Print", function ()
 			awful.spawn.with_shell("cd /tmp; scrot", false)
