@@ -3,14 +3,17 @@
 	email = yoann.blein@free.fr
 
 [alias]
+	c = commit
 	ci = commit
-	cia = commit -a -v
+	ca = commit -a
 	co = checkout
+	f = fetch -p
 	st = status --short --branch
 	br = branch
 	d = diff
-	lg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %Cblue(%an)%Creset' --abbrev-commit --date=relative
-	l = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %Cblue(%an)%Creset' --abbrev-commit --date=relative -10
+	dc = diff --cached
+	lg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%ar)%Creset %Cblue(%an)%Creset' --abbrev-commit
+	l = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%ar)%Creset %Cblue(%an)%Creset' --abbrev-commit -10
 	oops = reset --soft HEAD^1
 	grep = grep -n
 	pp = !sh -c 'git pull && git push'
@@ -46,3 +49,8 @@
 
 [url "https://github.com/"]
     insteadOf = gh:
+
+[submodule]
+	recurse-submodules = check
+[commit]
+	verbose = true
