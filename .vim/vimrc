@@ -188,7 +188,7 @@ nmap <Leader>l :Lines<CR>
 inoremap <C-U> <C-G>u<C-U>
 
 " Replace word under cursor
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>//<Left>
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/<Left>
 
 " Execute macro "q" with Q
 nmap Q @q
