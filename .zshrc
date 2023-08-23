@@ -2,7 +2,7 @@
 # Aliases
 #
 
-alias ls='ls --color=auto -F'
+alias ls='ls --color=auto -F --group-directories-first'
 alias grep='grep --color=auto'
 alias diff='colordiff'
 
@@ -38,7 +38,7 @@ function bak () { cp -a "$1" "${1}_$(date --iso-8601=seconds)" }
 function sdm() { udisksctl mount -b "/dev/sd$1" }
 function sdu() { udisksctl unmount -b "/dev/sd$1" }
 function y() {
-	pacaur -S $(pacaur --color=always -Ss $@ | sed '$!N;s/\n    / /' | fzf --ansi -m | cut -d " " -f 1)
+	pacaur -S $(pacaur --color=always -Ss $@ | sed '$!N;s/\n    / /' | fzf --ansi --multi --no-sort --no-hscroll | cut -d " " -f 1)
 }
 function mktgz() { tar czf "$1.tar.gz" "$1" }
 

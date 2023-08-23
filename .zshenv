@@ -1,12 +1,10 @@
 export EDITOR="vim"
 export BROWSER="chromium"
 export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
 export GREP_COLOR=7 # matches in invert color
 export MAKEFLAGS="-j$(getconf _NPROCESSORS_ONLN)"
 export PAGER="less"
 export GOPATH="$HOME/prog/go"
-export QT_LOGGING_TO_CONSOLE=1
 export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
 
 # fzf settings
