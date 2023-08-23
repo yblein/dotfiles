@@ -1,0 +1,15 @@
+[submodule ".vim/pack/default/start/asyncomplete-lsp.vim"]
+	path = .vim/pack/default/start/asyncomplete-lsp.vim
+	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim.git
+[submodule ".vim/pack/default/start/vim-lsp"]
+	path = .vim/pack/default/start/vim-lsp
+	url = https://github.com/prabirshrestha/vim-lsp.git
+[submodule ".vim/pack/default/start/asyncomplete.vim"]
+	path = .vim/pack/default/start/asyncomplete.vim
+	url = https://github.com/prabirshrestha/asyncomplete.vim
+[submodule ".vim/pack/default/start/vim-lsp-settings"]
+	path = .vim/pack/default/start/vim-lsp-settings
+	url = https://github.com/mattn/vim-lsp-settings
+[submodule ".vim/pack/default/start/vim-one"]
+	path = .vim/pack/default/start/vim-one
+	url = https://github.com/rakr/vim-one
