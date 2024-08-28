@@ -13,3 +13,6 @@
 [submodule ".vim/pack/default/start/vim-one"]
 	path = .vim/pack/default/start/vim-one
 	url = https://github.com/rakr/vim-one
+[submodule ".vim/pack/default/start/paige"]
+	path = .vim/pack/default/start/paige
+	url = https://git.sr.ht/~leon_plickat/paige
